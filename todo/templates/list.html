@@ -1,4 +1,4 @@
-<section class="section container">
+<section class="container">
   {% for todo in todos %}
   <div class="box">
     <div class="columns">
@@ -16,9 +16,15 @@
       </div>
       <div class="column is-2">
         <div class="level h-100">
-          <a class="button is-success"><i class="far fa-check-square"></i></a>
-          <a class="button is-warning"><i class="fas fa-edit"></i></a>
-          <a class="button is-danger"><i class="fas fa-trash-alt"></i></a>
+          <form action="" method="post"> {% csrf_token%}
+            <button class="button is-warning" formaction=""><i class="fas fa-edit"></i></button>
+          </form>
+          <form action="" method="post">{% csrf_token%}
+            <button class="button is-success" formaction=""><i class="far fa-check-square"></i></button>
+          </form>
+          <form action="/deletetodo/{{todo.id}}/" method="post">{% csrf_token%}
+            <button class="button is-danger" type="submit"><i class="fas fa-trash-alt"></i></button>
+          </form>
         </div>
       </div>
     </div>

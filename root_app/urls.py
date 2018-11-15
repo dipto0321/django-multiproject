@@ -23,5 +23,7 @@ urlpatterns = [
     path('super_control/', admin.site.urls),
     path('hello/', myView),
     path('dipto/', anotherHello),
-    path('todo/', index)
+    path('todo/', todoView),
+    path('addtodo/', todoadd),
+    path('deletetodo/<int:todo_id>/', deletetodo)
 ]
