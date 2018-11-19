@@ -3,18 +3,18 @@ from django.http import HttpResponseRedirect
 from .models import TodoItem
 
 
-def todoView(request):
-    all_todos = TodoItem.objects.all()
-    return render(request, 'index.html', {'todos': all_todos})
+def listView(request):
+    all_lists = TodoItem.objects.all()
+    return render(request, 'index.html', {'lists': all_lists})
 
 
-def todoadd(request):
-    new_todo = TodoItem(content=request.POST['content'])
-    new_todo.save()
-    return HttpResponseRedirect('/todo')
+def listadd(request):
+    new_list = TodoItem(content=request.POST['content'])
+    new_list.save()
+    return HttpResponseRedirect('/list')
 
 
-def deletetodo(request, todo_id):
-    item_del = TodoItem.objects.get(id=todo_id)
+def deletelist(request, list_id):
+    item_del = TodoItem.objects.get(id=list_id)
     item_del.delete()
-    return HttpResponseRedirect('/todo')
+    return HttpResponseRedirect('/list')
